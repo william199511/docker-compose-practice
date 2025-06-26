@@ -64,13 +64,12 @@ Service模块对应docker-compose的配置如下图所示：
 
 Service容器的构建和运行过程的参数（数据库端口，启动端口等）都配置在docker-compose中，这样避免多处配置。Dockerfile中通过如下配置接收参数：
 
-![](media/image12.png){width="4.493055555555555in"
-height="1.7152777777777777in"}
+![image](https://github.com/user-attachments/assets/14b0ffd3-235a-49b5-aa27-b57c388976c7)
 
 容器运行的yml配置文件中通过如下配置接收参数：
 
-![](media/image13.png){width="5.768055555555556in"
-height="3.8965277777777776in"}
+![image](https://github.com/user-attachments/assets/4ce47a4b-7f83-4653-a84a-9a0a22af885b)
+
 
 depends_on标签表示service容器生成之前，需要等待mysql容器和redis容器都生成完成。
 
