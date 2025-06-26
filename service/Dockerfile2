@@ -1,0 +1,24 @@
+FROM openjdk:8-jre-slim
+
+# 设置环境变量
+ENV JAVA_OPTS="-Xmx512m -Xms512m -XX:MaxMetaspaceSize=256m -XX:+PrintGCDetails -Xloggc:/opt/service/logs/gc.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
+ENV APP_PORT=7081
+ENV APP_ENV=test
+ENV APP_PATH=/opt/service/iPark.jar
+ENV CONFIG_PATH=/opt/service/config/
+
+# 创建目录
+RUN mkdir -p /opt/service/config
+RUN mkdir -p /opt/service/logs
+
+# 添加应用文件
+ADD iPark.jar /opt/service/iPark.jar
+ADD config/application-test.yml /opt/service/config/application-test.yml
+
+# 工作目录
+WORKDIR /opt/service
+
+# 容器启动时执行的命令
+#先加载 JAR 包中的 application.yml
+#再加载外部目录中的 application-test.yml，并覆盖默认配置
+CMD exec java $JAVA_OPTS -Dserver.port=$APP_PORT -Dspring.profiles.active=$APP_ENV -Dspring.config.additional-location=file:$CONFIG_PATH -jar $APP_PATH
