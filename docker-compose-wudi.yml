@@ -45,7 +45,7 @@ services:
     privileged: true
     ports:
       - "7081:7081"
-    environment:
+    environment: #传入运行参数
       - APP_ENV=test
       - APP_PORT=7081
       - MYSQL_ROOT_PASSWORD=pass$000
@@ -78,5 +78,3 @@ services:
 
 networks:
   backend:
-
-
