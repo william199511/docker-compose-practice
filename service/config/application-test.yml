@@ -1,0 +1,52 @@
+#默认使用配置
+spring:
+  servlet:
+    multipart:
+      max-file-size: 3000MB
+      max-request-size: 3000MB
+mybatis:
+  mapperLocations: classpath:/mapper/**/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+server:
+  servlet:
+    context-path: /IceBreaker
+    session:
+      timeout: 120m
+  tomcat:
+    max-http-post-size: 3000MB
+logging:
+  level:
+    com.nagr.icebreaker.dao.***: INFO
+---
+
+#Dev
+spring:
+  session:
+    store-type: none
+
+  datasource:
+    master:
+      url: jdbc:mysql://mysql-app:3306/ipark_baimi_b?useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&allowMultiQueries=true
+      username: root
+      password: pass$000
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+
+    cluster:
+      - key: slave1
+        url: jdbc:mysql://mysql-app:3306/ipark_baimi_b?useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&allowMultiQueries=true
+        username: root
+        password: pass$000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+#文件上传路径
+uploadLocation: /home/iPark-baimiB/doc
+
+server:
+  port: 7081
