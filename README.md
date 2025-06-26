@@ -20,13 +20,14 @@
 
 # Redis
 
-![](media/image4.png){width="5.768055555555556in"
-height="1.3222222222222222in"}
+![image](https://github.com/user-attachments/assets/30ac342f-1a5c-4fb4-a48c-24c84e690e51)
+
 
 Redis模块也是比较简单，整体结构如上图所示。conf对应数据库的配置文件目录，包含redis.conf。对应docker-compose的配置如下图所示：
 
-![](media/image5.png){width="5.768055555555556in"
-height="1.7868055555555555in"}
+![image](https://github.com/user-attachments/assets/bf8e361d-9bf4-479a-8aaf-d5bda7153ea3)
+
+
 
 # Service
 
