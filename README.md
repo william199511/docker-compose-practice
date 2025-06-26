@@ -33,16 +33,14 @@ Redis模块也是比较简单，整体结构如上图所示。conf对应数据�
 
 Service
 模块相对来说比较复杂些，本教程在service模块的配置基于java8版本。我们可以在dockerfile中看到使用的jre镜像如下图所示。
-
-![](media/image6.png){width="2.78125in" height="0.5416666666666666in"}
+![image](https://github.com/user-attachments/assets/8d3808ae-d37b-43ef-bde4-f6fadadd098e)
 
 Service模块主要的配置如下图所示：config目录就是springboot服务启动所依赖的配置文件，Dockerfile
 就是构建springboot
 镜像的核心文件。Springboot的配置文件中，数据库就用容器名就行了,不需要写
 ip，因为在同一个network。
 
-![](media/image7.png){width="5.768055555555556in"
-height="2.057638888888889in"}
+![image](https://github.com/user-attachments/assets/c072c98b-ef9b-48ef-9314-d133e4af5405)
 
 Dockerfile和Dockerfile2的区别就是Dockerfile用的是超轻量级的 Java
 运行时，
