@@ -95,8 +95,7 @@ depends_on标签表示nginx容器生成之前，需要等待后端容器生成�
 
 上述模块配置完之后，执行如下命令即可：
 
-docker-compose -f docker-compose-wudi.yml build \--no-cache &&
-docker-compose -f docker-compose-wudi.yml up --d
+docker-compose -f  docker-compose-wudi.yml build --no-cache && docker-compose  -f docker-compose-wudi.yml up -d
 
 ![image](https://github.com/user-attachments/assets/58970f12-5404-4736-b47a-245a10a0baf2)
 
