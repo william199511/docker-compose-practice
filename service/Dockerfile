@@ -1,23 +1,26 @@
-# Ê¹ÓÃ³¬ÇáÁ¿¼¶µÄ Java ÔËĞĞÊ±
+# ä½¿ç”¨è¶…è½»é‡çº§çš„ Java è¿è¡Œæ—¶
 FROM gcr.io/distroless/java:8
 
-# »·¾³±äÁ¿£¨¿ÉÑ¡£©
-ENV APP_PORT=7081
-ENV APP_ENV=test
+# å£°æ˜æ„å»ºå˜é‡
+ARG APP_ENV
+ARG APP_PORT
+
+# ç¯å¢ƒå˜é‡ï¼ˆå¯é€‰ï¼‰
+ENV APP_PORT=${APP_PORT}
+ENV APP_ENV=${APP_ENV}
 ENV CONFIG_PATH=/opt/service/config
 
-# ÉèÖÃ¹¤×÷Ä¿Â¼
+# è®¾ç½®å·¥ä½œç›®å½•
 WORKDIR /opt/service
 
-# ¿½±´ JAR ºÍÅäÖÃÎÄ¼ş
+# æ‹·è´ JAR å’Œé…ç½®æ–‡ä»¶
 COPY iPark.jar iPark.jar
-COPY config/application-test.yml config/application-test.yml
+COPY config/application-${APP_ENV}.yml config/application-${APP_ENV}.yml
 
-# ±©Â¶¶Ë¿Ú
-EXPOSE 7081
+# æš´éœ²ç«¯å£
+EXPOSE ${APP_PORT}
 
-# Æô¶¯ÃüÁî£¨Ê¹ÓÃ ENTRYPOINT + CMD ·ÖÀë£©
+# å¯åŠ¨å‘½ä»¤ï¼ˆä½¿ç”¨ ENTRYPOINT + CMD åˆ†ç¦»ï¼‰
 ENTRYPOINT ["/usr/bin/java"]
-#CMD ["-Xmx512m", "-Xms512m", "-XX:MaxMetaspaceSize=256m", "-Dserver.port=7081", "-Dspring.profiles.active=test", "-Dspring.config.additional-location=file:/opt/service/config/", "-jar", "iPark.jar"]
 
-CMD ["-Xmx512m","-Xms512m","-XX:MaxMetaspaceSize=256m", "-XX:+PrintGCDetails","-Xloggc:/opt/service/logs/gc.log","-XX:+UseGCLogFileRotation", "-XX:NumberOfGCLogFiles=5",  "-XX:GCLogFileSize=10M",  "-Dserver.port=7081",  "-Dspring.profiles.active=test",  "-Dspring.config.additional-location=file:/opt/service/config/","-jar","iPark.jar"]
+CMD ["-Xmx512m","-Xms512m","-XX:MaxMetaspaceSize=256m", "-XX:+PrintGCDetails","-Xloggc:/opt/service/logs/gc.log","-XX:+UseGCLogFileRotation", "-XX:NumberOfGCLogFiles=5",  "-XX:GCLogFileSize=10M",  "-Dserver.port=${APP_PORT}",  "-Dspring.profiles.active=${APP_ENV}",  "-Dspring.config.additional-location=file:/opt/service/config/","-jar","iPark.jar"]
