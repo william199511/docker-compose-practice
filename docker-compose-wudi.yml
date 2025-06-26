@@ -36,6 +36,9 @@ services:
     build:
       context: ./service #当前目录下必须有 Dockerfile
       dockerfile: Dockerfile
+      args: #传入构建参数
+        APP_ENV: test  
+        APP_PORT: 7081
     image: baimib-app:1.0.1
     container_name: baimib-app
     restart: always
@@ -45,6 +48,9 @@ services:
     environment:
       - APP_ENV=test
       - APP_PORT=7081
+      - MYSQL_ROOT_PASSWORD=pass$000
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=ipark_baimi_b 
     volumes:
       - ./service/logs:/opt/service/logs
       - ./service/config:/opt/service/config
