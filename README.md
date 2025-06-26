@@ -54,8 +54,8 @@ Dockerfile和Dockerfile2的区别就是Dockerfile用的是超轻量级的 Java
 
 Dockerfile2使用的是openjdk:8-jre-slim。
 
-![](media/image10.png){width="2.5416666666666665in"
-height="0.6770833333333334in"}
+![image](https://github.com/user-attachments/assets/fc33f63e-71dc-43f5-b6be-4d48b3332aff)
+
 
 Service模块对应docker-compose的配置如下图所示：
 
