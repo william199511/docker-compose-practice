@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.40
+    container_name: mysql-app
+    restart: always
+    privileged: true
+    environment:
+      MYSQL_ROOT_PASSWORD: pass$000
+      MYSQL_DATABASE: ipark_baimi_b
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/logs:/var/log/mysql
+    networks:
+      - backend
+
+  redis:
+    image: redis:8.0.1
+    container_name: redis-app
+    restart: always
+    privileged: true
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf --requirepass 123456 --appendonly yes
+    networks:
+      - backend
+
+  baimib:
+    build:
+      context: ./service #当前目录下必须有 Dockerfile
+      dockerfile: Dockerfile
+    image: baimib-app:1.0.1
+    container_name: baimib-app
+    restart: always
+    privileged: true
+    ports:
+      - "7081:7081"
+    environment:
+      - APP_ENV=test
+      - APP_PORT=7081
+    volumes:
+      - ./service/logs:/opt/service/logs
+      - ./service/config:/opt/service/config
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:1.27.5
+    container_name: nginx-app
+    restart: always
+    privileged: true
+    ports:
+      - "8082:80"
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - baimib
+    networks:
+      - backend
+
+networks:
+  backend:
+
+
