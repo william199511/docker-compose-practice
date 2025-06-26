@@ -59,8 +59,8 @@ Dockerfile2使用的是openjdk:8-jre-slim。
 
 Service模块对应docker-compose的配置如下图所示：
 
-![](media/image11.png){width="5.768055555555556in"
-height="5.190277777777778in"}
+![image](https://github.com/user-attachments/assets/e3784666-f4ad-4996-8dd5-e42c1a13a288)
+
 
 Service容器的构建和运行过程的参数（数据库端口，启动端口等）都配置在docker-compose中，这样避免多处配置。Dockerfile中通过如下配置接收参数：
 
