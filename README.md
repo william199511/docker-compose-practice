@@ -77,19 +77,17 @@ depends_on标签表示service容器生成之前，需要等待mysql容器和redi
 
 nginx模块的整体结构如下图所示：
 
-![](media/image14.png){width="5.4375in" height="1.5520833333333333in"}
+![image](https://github.com/user-attachments/assets/71e84633-bff6-4cd7-b2c5-437caecde31d)
 
 Conf存放nginx.conf，html存在前端页面，logs存在日志。
 
 nginx.conf的结构如下：
 
-![](media/image15.png){width="3.451388888888889in"
-height="3.5347222222222223in"}
+![image](https://github.com/user-attachments/assets/e8b42bab-0f6a-46c7-b70f-d2dab03142f0)
 
 如果跟service容器在同一个network，配置后端接口地址可以使用service的容器名。nginx模块对应docker-compose的配置如下图所示：
 
-![](media/image16.png){width="4.680555555555555in"
-height="1.9583333333333333in"}
+![image](https://github.com/user-attachments/assets/d4adf3cf-a619-4fa0-88f6-b4fc674b6194)
 
 depends_on标签表示nginx容器生成之前，需要等待后端容器生成完成。
 
@@ -100,7 +98,6 @@ depends_on标签表示nginx容器生成之前，需要等待后端容器生成�
 docker-compose -f docker-compose-wudi.yml build \--no-cache &&
 docker-compose -f docker-compose-wudi.yml up --d
 
-![](media/image17.png){width="5.768055555555556in"
-height="1.6944444444444444in"}
+![image](https://github.com/user-attachments/assets/58970f12-5404-4736-b47a-245a10a0baf2)
 
 如果在实际应用运用过程中需要添加其他模块，比如MQ，postgresql，按照docker-compose-wudi.yml的格式依次填写配置即可。
