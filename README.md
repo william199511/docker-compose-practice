@@ -45,14 +45,12 @@ ip，因为在同一个network。
 Dockerfile和Dockerfile2的区别就是Dockerfile用的是超轻量级的 Java
 运行时，
 
-![](media/image8.png){width="3.6666666666666665in"
-height="0.6770833333333334in"}
+![image](https://github.com/user-attachments/assets/60974dab-ee01-4a22-b029-b9fdeb60344c)
 
 这个镜像的有点就是体积小，占用空间少。缺点就是不能使用 docker exec
 命令进入容器，适合在生产环境部署。
 
-![](media/image9.png){width="5.768055555555556in"
-height="0.7729166666666667in"}
+![image](https://github.com/user-attachments/assets/d74e905e-49f9-4c5f-87b6-2efb541786a7)
 
 Dockerfile2使用的是openjdk:8-jre-slim。
 
