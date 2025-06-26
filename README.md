@@ -10,13 +10,13 @@
 
 # Mysql
 
-![](media/image2.png){width="5.768055555555556in"
-height="1.5034722222222223in"}
+![image](https://github.com/user-attachments/assets/e9591990-8450-4e1a-9b58-3e9034317e9d)
+
 
 数据库模块的配置较为简单，他的目录如上图所示。Conf对应数据库的配置文件目录，目前包含my.cnf。对应docker-compose的配置如下图所示：
 
-![](media/image3.png){width="3.3819444444444446in"
-height="2.0277777777777777in"}
+![image](https://github.com/user-attachments/assets/bd6175e1-821d-4b52-ba01-e4b2cd5edd68)
+
 
 # Redis
 
