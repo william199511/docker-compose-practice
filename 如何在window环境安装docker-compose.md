@@ -7,6 +7,8 @@
 
 # 配置环境变量
       将下载的文件保存到你选择的目录
-      ![微信截图_20250627102711](https://github.com/user-attachments/assets/07009778-d67c-43a7-85be-c00dc4d0682c)
+      
+     ![微信截图_20250627102711](https://github.com/user-attachments/assets/a62d01a5-07de-47e2-add1-c4e1dd7eb998)
+
 
       
