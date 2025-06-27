@@ -4,3 +4,9 @@
       打开网址https://github.com/docker/compose/releases，找到docker-compose window版本的。
 
 ![微信截图_20250627102419](https://github.com/user-attachments/assets/b1abc987-ae44-4770-b84b-584ca751d5c9)
+
+# 配置环境变量
+      将下载的文件保存到你选择的目录
+      ![微信截图_20250627102711](https://github.com/user-attachments/assets/07009778-d67c-43a7-85be-c00dc4d0682c)
+
+      
