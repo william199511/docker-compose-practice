@@ -14,6 +14,11 @@
 
 ![image](https://github.com/user-attachments/assets/dd969542-faed-4b44-ae4d-f7c80cf47950)
 
+# 验证
+      打开cmd窗口，输入命令docker-compose --version，看到如下输出就表示安装成功了。
+![image](https://github.com/user-attachments/assets/1f40036b-f4e7-4648-8ed7-759ea175c0f7)
+
+
 
 
       
