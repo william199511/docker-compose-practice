@@ -10,5 +10,10 @@
       
 ![微信截图_20250627102711](https://github.com/user-attachments/assets/a62d01a5-07de-47e2-add1-c4e1dd7eb998)
 
+      在系统环境变量中添加docker-compose的安装包路径
+
+![image](https://github.com/user-attachments/assets/dd969542-faed-4b44-ae4d-f7c80cf47950)
+
+
 
       
